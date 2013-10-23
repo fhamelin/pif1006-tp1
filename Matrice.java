@@ -17,9 +17,31 @@ class Matrice {
 		matrice[ligne][colonne] = element;
 	}
 	
+	public int getLignes()
+	{
+		return matrice.length;
+	}
+	
+	public int getColonnes()
+	{
+		return matrice[0].length;
+	}
+	
 	public Matrice additionner(Matrice matrice)
 	{
-		return this;
+		if (memeFormat(matrice)){
+			// TODO : throw exception à venir
+		}
+		
+		double[][] elements = new double[getLignes()][getColonnes()];
+		
+		for (int ligne = 0;ligne < getLignes();ligne++) {
+			for (int colonne = 0; colonne < getColonnes();colonne++) {
+				elements[ligne][colonne] = getElement(ligne, colonne) + matrice.getElement(ligne, colonne);
+			}
+		}
+		
+		return new Matrice(elements);
 	}
 	
 	public Matrice faireProduitScalaire(Double nombre)
@@ -70,5 +92,14 @@ class Matrice {
 	public boolean estReguliere()
 	{
 		return true;
+	}
+	
+	public boolean memeFormat(Matrice matrice)
+	{
+		if (this.getLignes() == matrice.getLignes() && this.getColonnes() == matrice.getColonnes())	{
+			return true;
+		}
+		
+		return false;
 	}
 }
