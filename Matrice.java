@@ -44,9 +44,17 @@ class Matrice {
 		return new Matrice(elements);
 	}
 	
-	public Matrice faireProduitScalaire(Double nombre)
+	public Matrice faireProduitScalaire(double scalaire)
 	{
-		return this;
+		double[][] elements = new double[getLignes()][getColonnes()];
+		
+		for (int ligne = 0;ligne < getLignes();ligne++) {
+			for (int colonne = 0; colonne < getColonnes();colonne++) {
+				elements[ligne][colonne] = getElement(ligne, colonne) *	scalaire;
+			}
+		}
+		
+		return new Matrice(elements);
 	}
 	
 	public Matrice faireProduitMatriciel(Matrice matrice)
