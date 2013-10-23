@@ -59,6 +59,9 @@ class Matrice {
 	
 	public Matrice faireProduitMatriciel(Matrice matrice)
 	{
+		double[][] elements = new double[getLignes()][getColonnes()];
+		
+		
 		return this;
 	}
 	
@@ -105,6 +108,15 @@ class Matrice {
 	public boolean memeFormat(Matrice matrice)
 	{
 		if (this.getLignes() == matrice.getLignes() && this.getColonnes() == matrice.getColonnes())	{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean memeLigneColonne(Matrice matrice) 
+	{
+		if (this.getLignes() == matrice.getColonnes() && this.getColonnes() == matrice.getLignes()) {
 			return true;
 		}
 		
