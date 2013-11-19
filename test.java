@@ -27,10 +27,21 @@ public class test {
 		
 		double[][] arrM = {{4,2,8,3}, {5,1,7,5}, {8,0,8,5}, {3,2,3,8}};
 		
-		Matrice matA = new Matrice(arrI);
-		Matrice matB = matA.getCoMatrice(); 
 		
-		System.out.println(matA.getDeterminant());
+		double[][] arrN = {{3,6,9},{0,5,4},{0,0,1}}; // Triangulaire supérieur
+		double[][] arrO = {{8,0,0},{4,6,0},{1,2,4}}; // Triangulaire inférieure
+		double[][] arrP = {{0,6,9},{0,0,4},{0,0,0}}; // Triangulaire supérieur stricte
+		double[][] arrQ = {{0,0,0},{4,0,0},{1,2,0}}; // Triangulaire inférieure stricte
+		// NIMPORTE SUPERIEUR INFERIEUR
+		
+		double[][] arrR = {{-2,4},{1,3}}; // Inversion Ordre 2
+		double[][] arrS = {{1,2,-1},{-2,1,1},{0,3,-3}}; // Inversion Ordre N
+		double[][] arrT = {{3,0,0},{0,2,0},{0,0,4}}; // Inversion diagonale
+		
+		Matrice matA = new Matrice(arrS);
+		Matrice matB = matA.getCoMatrice();
+		
+		System.out.println(matB.afficherMatrice());
 	}
 
 }
