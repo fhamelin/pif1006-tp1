@@ -40,7 +40,7 @@ class Matrice {
 				for (int colonne = 0; colonne < getColonnes();colonne++) 
 					elements[ligne][colonne] = getElement(ligne, colonne) + matrice.getElement(ligne, colonne);
 		else 
-			System.out.println("Addition impossible, les matrices sont de format différent");
+			System.out.println("Addition impossible, les matrices sont de format diffï¿½rent");
 		
 		return new Matrice(elements);
 	}
@@ -58,27 +58,27 @@ class Matrice {
 	public Matrice faireProduitMatriciel(Matrice matrice) {
 		double[][] elements = new double[getLignes()][matrice.getColonnes()];
 		
-		/* Vérifier si le nombre de colonne de la matrice actuelle
-		 * est égal au nombre de ligne de la matrice à multiplier */
+		/* Vï¿½rifier si le nombre de colonne de la matrice actuelle
+		 * est ï¿½gal au nombre de ligne de la matrice ï¿½ multiplier */
 		if (memeLigneColonne(matrice)) 
 			// On parcours chaques lignes de la matrice actuelle 
 			for (int ligne = 0; ligne < getLignes(); ligne++) 
-				// On parcours chaque colonne de la matrice à multiplier
+				// On parcours chaque colonne de la matrice ï¿½ multiplier
 				for (int colonneB = 0; colonneB < matrice.getColonnes(); colonneB++) 
 					// On parcours chaque colonne de la matrice actuelle
 					for (int colonneA = 0; colonneA < getColonnes(); colonneA++) 
 						 elements[ligne][colonneB] += getElement(ligne,colonneA) * matrice.getElement(colonneA, colonneB);
 		else
 			System.out.println("Produit impossible!, Le nombre de ligne de la matrice A doit " +
-					"être égale au nombre de colonnne de la matrice B");
+					"ï¿½tre ï¿½gale au nombre de colonnne de la matrice B");
 		
 		return new Matrice(elements);
 	}
 	
 	public double getTrace() {
-		// Si la matrice n'est pas carré, on retourne 0
+		// Si la matrice n'est pas carrï¿½, on retourne 0
 		if (!estCarre()) {
-			System.out.println("Trace impossible, la matrice doit être carré!");
+			System.out.println("Trace impossible, la matrice doit ï¿½tre carrï¿½!");
 			return 0;
 		}
 		
@@ -95,9 +95,9 @@ class Matrice {
 	
 	public double getDeterminant()
 	{
-		// Si la matrice n'est pas carré, on retourne 0
+		// Si la matrice n'est pas carrï¿½, on retourne 0
 		if (!estCarre()) {
-			System.out.println("Déterminant impossible, la matrice doit être carré!");
+			System.out.println("Dï¿½terminant impossible, la matrice doit ï¿½tre carrï¿½!");
 			return 0;
 		}
 			
@@ -116,10 +116,10 @@ class Matrice {
 	public Matrice getTransposee() {
 		Matrice mat = new Matrice(new double[getLignes()][getColonnes()]);
 		
-		// Si la matrice n'est pas carré, on retourne une matrice vide
+		// Si la matrice n'est pas carrï¿½, on retourne une matrice vide
 		if (!estCarre()) {
-			System.out.println("Transposée impossible, " +
-					"la matrice n'est pas carrée!");
+			System.out.println("Transposï¿½e impossible, " +
+					"la matrice n'est pas carrï¿½e!");
 			return mat;
 		}
 		
@@ -136,7 +136,7 @@ class Matrice {
 		int posNeg = 0;
 		
 		if (!estCarre()) {
-			System.out.println("Comatrice impossible, la matrice doit être carre.");
+			System.out.println("Comatrice impossible, la matrice doit ï¿½tre carre.");
 			return mat;
 		}
 		
@@ -153,11 +153,7 @@ class Matrice {
 				determinant = getComplementAlgebrique(ligne, colonne);
 				posNeg = getPosNeg(ligne, colonne);
 				
-//				if ( (posNeg == 1 && determinant < 0) || 
-//					 (posNeg == -1 && determinant > 0))
-//					determinant *= -1;
-				
-				mat.setElement(ligne, colonne, determinant);
+				mat.setElement(ligne, colonne, determinant * posNeg);
 			}
 		
 		return mat;
@@ -166,16 +162,16 @@ class Matrice {
 	public Matrice getMatriceInverse() {
 		Matrice mat = new Matrice(new double[getLignes()][getColonnes()]);
 		
-		// Si la matrice n'est pas carré, on retourne une matrice vide
+		// Si la matrice n'est pas carrï¿½, on retourne une matrice vide
 		if (!estCarre()) {
-			System.out.println("Matrice inverse impossible, car la matrice n'est pas carrée!");
+			System.out.println("Matrice inverse impossible, car la matrice n'est pas carrï¿½e!");
 			return mat;
 		}
 		
-		// Si la matrice n'est pas régulière, on retourne une matrice vide
+		// Si la matrice n'est pas rï¿½guliï¿½re, on retourne une matrice vide
 		if (!estReguliere()) {
-			System.out.println("Matrice inverse impossible, car la matrice n'est pas réguliere" +
-					           " le déterminant soit être différent de 0!");
+			System.out.println("Matrice inverse impossible, car la matrice n'est pas rï¿½guliere" +
+					           " le dï¿½terminant soit ï¿½tre diffï¿½rent de 0!");
 			return mat;
 		}
 		
@@ -246,18 +242,6 @@ class Matrice {
 		return output;
 	}
 	
-	public Type getType(String _type) {
-		Type type = Type.TRIANGULAIRE_NIMPORTE;
-		
-		switch (_type) {
-			case "NIMPORTE":  type = Type.TRIANGULAIRE_NIMPORTE; break;
-			case "SUPERIEUR": type = Type.TRIANGULAIRE_SUPERIEUR; break;
-			case "INFERIEUR": type = Type.TRIANGULAIRE_INFERIEUR; break;
-		}
-		
-		return type;
-	}
-	
 	private boolean memeFormat(Matrice matrice) {
 		return (this.getLignes() == matrice.getLignes() && 
 			    this.getColonnes() == matrice.getColonnes());
@@ -315,7 +299,7 @@ class Matrice {
 		return (int)Math.pow((double)-1,(double)(_ligne+_colonne));
 	}
 
-	// Triangulaire supérieur ou inférieur
+	// Triangulaire supï¿½rieur ou infï¿½rieur
 	private boolean verifierTriangulaire() {
 		return (verifierTriangulaireSuperieur() || verifierTriangulaireInferieur());
 	}
