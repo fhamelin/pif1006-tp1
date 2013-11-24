@@ -36,10 +36,10 @@ public class test {
 		
 		double[][] arrR = {{-2,4},{1,3}}; // Inversion Ordre 2
 		double[][] arrS = {{1,2,-1},{-2,1,1},{0,3,-3}}; // Inversion Ordre N
-		double[][] arrT = {{3,0,0},{0,2,0},{0,0,4}}; // Inversion diagonale
+		double[][] arrT = {{3,0,0},{0,2,0},{0,0,4}}; 	// Inversion diagonale
 		
-		Matrice matA = new Matrice(arrS);
-		Matrice matB = matA.getCoMatrice();
+		Matrice matA = new Matrice(arrR);
+		Matrice matB = matA.getMatriceInverse();
 		
 		System.out.println(matB.afficherMatrice());
 	}

@@ -26,7 +26,7 @@ public class Systeme {
 		Matrice result = new Matrice(new double[matriceB.getLignes()][matriceB.getColonnes()]);
 		
 		if (detA == 0) {
-			System.out.println("La matrice a un dÃ©terminant Ã©gal Ã  0.");
+			System.err.println("La matrice a un déterminant égal à  0.");
 			return result;
 		}
 		
@@ -54,7 +54,16 @@ public class Systeme {
 	
 	public Matrice trouverXParInversionMatricielle()
 	{
-		return matriceA;
+		 boolean matReguliere = matriceA.estReguliere();
+		 
+		// S'assurer d'un déterminant non null
+		 if (!matReguliere) {
+			 System.err.println("La matrice n'est pas régulière (det égale 0)");
+			 return matriceA;
+		 }
+		 
+		 Matrice matInverse   = matriceA.getMatriceInverse(); 
+		 return matInverse.faireProduitMatriciel(matriceB);
 	}
 	
 	public Matrice trouverXParJacobi(double epsilon)

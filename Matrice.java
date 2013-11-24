@@ -40,7 +40,7 @@ class Matrice {
 				for (int colonne = 0; colonne < getColonnes();colonne++) 
 					elements[ligne][colonne] = getElement(ligne, colonne) + matrice.getElement(ligne, colonne);
 		else 
-			System.out.println("Addition impossible, les matrices sont de format diff�rent");
+			System.err.println("Addition impossible, les matrices sont de format diff�rent");
 		
 		return new Matrice(elements);
 	}
@@ -69,7 +69,7 @@ class Matrice {
 					for (int colonneA = 0; colonneA < getColonnes(); colonneA++) 
 						 elements[ligne][colonneB] += getElement(ligne,colonneA) * matrice.getElement(colonneA, colonneB);
 		else
-			System.out.println("Produit impossible!, Le nombre de ligne de la matrice A doit " +
+			System.err.println("Produit impossible!, Le nombre de ligne de la matrice A doit " +
 					"�tre �gale au nombre de colonnne de la matrice B");
 		
 		return new Matrice(elements);
@@ -78,7 +78,7 @@ class Matrice {
 	public double getTrace() {
 		// Si la matrice n'est pas carr�, on retourne 0
 		if (!estCarre()) {
-			System.out.println("Trace impossible, la matrice doit �tre carr�!");
+			System.err.println("Trace impossible, la matrice doit �tre carr�!");
 			return 0;
 		}
 		
@@ -97,7 +97,7 @@ class Matrice {
 	{
 		// Si la matrice n'est pas carr�, on retourne 0
 		if (!estCarre()) {
-			System.out.println("D�terminant impossible, la matrice doit �tre carr�!");
+			System.err.println("D�terminant impossible, la matrice doit �tre carr�!");
 			return 0;
 		}
 			
@@ -118,7 +118,7 @@ class Matrice {
 		
 		// Si la matrice n'est pas carr�, on retourne une matrice vide
 		if (!estCarre()) {
-			System.out.println("Transpos�e impossible, " +
+			System.err.println("Transpos�e impossible, " +
 					"la matrice n'est pas carr�e!");
 			return mat;
 		}
@@ -136,7 +136,7 @@ class Matrice {
 		int posNeg = 0;
 		
 		if (!estCarre()) {
-			System.out.println("Comatrice impossible, la matrice doit �tre carre.");
+			System.err.println("Comatrice impossible, la matrice doit �tre carre.");
 			return mat;
 		}
 		
@@ -164,13 +164,13 @@ class Matrice {
 		
 		// Si la matrice n'est pas carr�, on retourne une matrice vide
 		if (!estCarre()) {
-			System.out.println("Matrice inverse impossible, car la matrice n'est pas carr�e!");
+			System.err.println("Matrice inverse impossible, car la matrice n'est pas carr�e!");
 			return mat;
 		}
 		
 		// Si la matrice n'est pas r�guli�re, on retourne une matrice vide
 		if (!estReguliere()) {
-			System.out.println("Matrice inverse impossible, car la matrice n'est pas r�guliere" +
+			System.err.println("Matrice inverse impossible, car la matrice n'est pas r�guliere" +
 					           " le d�terminant soit �tre diff�rent de 0!");
 			return mat;
 		}
