@@ -348,4 +348,81 @@ class Matrice {
 		return (ctrLnColZero == ctrValeurZero);
 	}
 	
+	public boolean verifierDominanceDiagonaleStricte()
+	{
+		double diagonale = 0;
+		double reste = 0;
+		
+		for (int ligne = 0; ligne < getLignes(); ligne++) {
+			for (int colonne = 0; colonne < getColonnes(); colonne++) {
+				if (ligne == colonne) {
+					diagonale += getElement(ligne, colonne);
+				}
+				else {
+					reste += getElement(ligne, colonne);
+				}
+			}
+		}
+		
+		return (diagonale > reste);
+	}
+	
+	public Matrice getDiagonale()
+	{
+		Matrice mat = new Matrice(new double[getLignes()][getColonnes()]);
+		
+		for (int ligne = 0; ligne < getLignes(); ligne++) {
+			for (int colonne = 0; colonne < getColonnes(); colonne++) {
+				if (ligne == colonne) {
+					mat.setElement(ligne, colonne, this.getElement(ligne, colonne));
+				}
+				else {
+					mat.setElement(ligne, colonne, 0);
+				}
+			}
+		}
+		
+		return mat;
+	}
+	
+	public Matrice getTriangulaireInferieure()
+	{
+		Matrice mat = new Matrice(new double[getLignes()][getColonnes()]);
+		
+		for (int ligne = 0; ligne < getLignes(); ligne++) {
+			for (int colonne = 0; colonne < getColonnes(); colonne++) {
+				if (ligne > colonne) {
+					mat.setElement(ligne, colonne, this.getElement(ligne, colonne));
+				}
+				else {
+					mat.setElement(ligne, colonne, 0);
+				}
+			}
+		}
+		
+		return mat;
+	}
+	
+	public Matrice getTriangulaireSuperieure()
+	{
+		Matrice mat = new Matrice(new double[getLignes()][getColonnes()]);
+		
+		for (int ligne = 0; ligne < getLignes(); ligne++) {
+			for (int colonne = 0; colonne < getColonnes(); colonne++) {
+				if (ligne < colonne) {
+					mat.setElement(ligne, colonne, this.getElement(ligne, colonne));
+				}
+				else {
+					mat.setElement(ligne, colonne, 0);
+				}
+			}
+		}
+		
+		return mat;
+	}
+	
+	public Matrice copy()
+	{
+		return new Matrice(matrice);
+	}
 }
