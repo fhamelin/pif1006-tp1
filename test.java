@@ -429,10 +429,6 @@ public class test {
 		// Jacobi
 		// --------------------------------------------------------------------
 		
-		
-		//Syteme sys = new System(arrU,arrU);
-	    //Matrice matB = matA.getMatriceInverse();
-		//matB.afficherMatrice();
 	}
 	
 	public static void afficherTitre(String _str) {
