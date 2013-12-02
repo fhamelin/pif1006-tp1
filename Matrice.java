@@ -6,11 +6,10 @@
 class Matrice {
 	private double[][] matrice;
 	
-	private enum Type {
-		TRIANGULAIRE_NIMPORTE, 
-		TRIANGULAIRE_INFERIEUR, 
-		TRIANGULAIRE_SUPERIEUR
-	}
+	public static final int
+		TRIANGULAIRE_NIMPORTE = 0, 
+		TRIANGULAIRE_INFERIEUR = 1, 
+		TRIANGULAIRE_SUPERIEUR = 2;
 	
 	public Matrice(double[][] matrice) {
 		this.matrice = matrice;
@@ -178,8 +177,8 @@ class Matrice {
 		double valeur = 0;
 		
 		// Si la matrice est triangulaire
-		if (estTriangulaire(Type.TRIANGULAIRE_SUPERIEUR, false) && 
-				estTriangulaire(Type.TRIANGULAIRE_INFERIEUR, false)) {
+		if (estTriangulaire(TRIANGULAIRE_SUPERIEUR, false) && 
+				estTriangulaire(TRIANGULAIRE_INFERIEUR, false)) {
 			for (int ligne = 0; ligne < getLignes(); ligne++)
 				for (int colonne = 0; colonne < getColonnes(); colonne++) 
 					if (ligne==colonne) {
@@ -206,7 +205,7 @@ class Matrice {
 		return (getLignes() == getColonnes()); 
 	}
 	
-	public boolean estTriangulaire(Type _type, boolean _verifierStricte)
+	public boolean estTriangulaire(int _type, boolean _verifierStricte)
 	{
 		boolean type    = false;
 		boolean stricte = true;
@@ -420,19 +419,6 @@ class Matrice {
 		}
 		
 		return mat;
-	}
-	
-	public Type getType(String _type) {
-		Type rtype = Type.TRIANGULAIRE_NIMPORTE;
-		
-		switch (_type) {
-			case "N": rtype = Type.TRIANGULAIRE_NIMPORTE; break;
-			case "S": rtype = Type.TRIANGULAIRE_SUPERIEUR; break;
-			case "I": rtype = Type.TRIANGULAIRE_INFERIEUR; break;
-			default: System.out.println("Entrez l'un des types suivant: \n N = NIMPORTE S = SUPERIEUR I = INFERIEUR");
-		}
-		
-		return rtype;
 	}
 	
 	public Matrice copy()
