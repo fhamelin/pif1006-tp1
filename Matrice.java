@@ -175,22 +175,23 @@ class Matrice {
 			return mat;
 		}
 		
-		double det = getDeterminant();
 		double valeur = 0;
-		mat = getCoMatrice();
-		mat = mat.getTransposee();
 		
 		// Si la matrice est triangulaire
 		if (estTriangulaire(Type.TRIANGULAIRE_SUPERIEUR, false) && 
 				estTriangulaire(Type.TRIANGULAIRE_INFERIEUR, false)) {
-			for (int ligne = 0; ligne < mat.getLignes(); ligne++)
-				for (int colonne = 0; colonne < mat.getColonnes(); colonne++) 
+			for (int ligne = 0; ligne < getLignes(); ligne++)
+				for (int colonne = 0; colonne < getColonnes(); colonne++) 
 					if (ligne==colonne) {
-						valeur = 1/mat.getElement(ligne, colonne);
+						valeur = 1/getElement(ligne, colonne);
 						mat.setElement(ligne, colonne, valeur);
 					}
 		} 
-		else { 	// Autres cas		
+		else { 	// Autres cas	
+			double det = getDeterminant();
+			mat = getCoMatrice();
+			mat = mat.getTransposee();
+			
 			for (int ligne = 0; ligne < mat.getLignes(); ligne++)
 				for (int colonne = 0; colonne < mat.getColonnes(); colonne++) { 
 					valeur = mat.getElement(ligne, colonne)/det;
@@ -419,6 +420,19 @@ class Matrice {
 		}
 		
 		return mat;
+	}
+	
+	public Type getType(String _type) {
+		Type rtype = Type.TRIANGULAIRE_NIMPORTE;
+		
+		switch (_type) {
+			case "N": rtype = Type.TRIANGULAIRE_NIMPORTE; break;
+			case "S": rtype = Type.TRIANGULAIRE_SUPERIEUR; break;
+			case "I": rtype = Type.TRIANGULAIRE_INFERIEUR; break;
+			default: System.out.println("Entrez l'un des types suivant: \n N = NIMPORTE S = SUPERIEUR I = INFERIEUR");
+		}
+		
+		return rtype;
 	}
 	
 	public Matrice copy()
