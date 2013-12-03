@@ -412,6 +412,16 @@ public class test {
 		// Cramer
 		// --------------------------------------------------------------------
 		
+		afficherTitre("Cramer");
+		mat = sys.trouverXParCramer();
+		System.out.println("Syst�me d'�quation sous forme de matrice: \n");
+		matA.afficherMatrice();
+		System.out.println("Matrice d'�galit� : \n");
+		matB.afficherMatrice();
+		System.out.println("R�sultat: \n");
+		mat.afficherMatrice();
+		System.out.println("-----------------------------------------------\n");
+		
 		// --------------------------------------------------------------------
 		// Inversion matricielle
 		// --------------------------------------------------------------------
@@ -428,7 +438,15 @@ public class test {
 		// --------------------------------------------------------------------
 		// Jacobi
 		// --------------------------------------------------------------------
-		
+		afficherTitre("Jacobi");
+		mat = sys.trouverXParJacobi(0.01);
+		System.out.println("Syst�me d'�quation sous forme de matrice: \n");
+		matA.afficherMatrice();
+		System.out.println("Matrice d'�galit� : \n");
+		matB.afficherMatrice();
+		System.out.println("R�sultat: \n");
+		mat.afficherMatrice();
+		System.out.println("-----------------------------------------------\n");
 		
 		//Syteme sys = new System(arrU,arrU);
 	    //Matrice matB = matA.getMatriceInverse();

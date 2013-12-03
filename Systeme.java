@@ -36,7 +36,7 @@ public class Systeme {
 			for (int ligne = 0; ligne < matriceA.getLignes(); ligne++) {
 				for (int colonne = 0; colonne < matriceA.getColonnes(); colonne++) {
 					if (colonne == currentCol){
-						matriceAn.setElement(ligne, colonne, matriceB.getElement(ligne, colonne));
+						matriceAn.setElement(ligne, colonne, matriceB.getElement(ligne, 0));
 					}
 					else {
 						matriceAn.setElement(ligne, colonne, matriceA.getElement(ligne, colonne));
