@@ -102,7 +102,8 @@ public class Systeme {
 				results.setElement(ligne, 0, result);
 				
 				//Vérifier si le critère de terminaison est rencontré
-				if (epsilon * -1 > result - lastResults.getElement(ligne, 0) && result - lastResults.getElement(ligne, 0) > epsilon) {
+				double diff = result - lastResults.getElement(ligne, 0);
+				if (epsilon * -1 > diff || diff > epsilon) {
 					stop = false;
 				}
 			}
