@@ -450,8 +450,7 @@ public class test {
 		System.out.println("Matrice d'�galit� : \n");
 		matB.afficherMatrice();
 		System.out.println("R�sultat: \n");
-		mat = sys2.trouverXParJacobi(0.1);
-		mat.afficherMatrice();
+		mat = sys.trouverXParJacobi(0.1);
 		System.out.println("-----------------------------------------------\n");
 		
 		mat = sys2.trouverXParJacobi(1);
