@@ -36,7 +36,7 @@ public class Systeme {
 			for (int ligne = 0; ligne < matriceA.getLignes(); ligne++) {
 				for (int colonne = 0; colonne < matriceA.getColonnes(); colonne++) {
 					if (colonne == currentCol){
-						matriceAn.setElement(ligne, colonne, matriceB.getElement(ligne, colonne));
+						matriceAn.setElement(ligne, colonne, matriceB.getElement(ligne, 0));
 					}
 					else {
 						matriceAn.setElement(ligne, colonne, matriceA.getElement(ligne, colonne));
@@ -102,7 +102,8 @@ public class Systeme {
 				results.setElement(ligne, 0, result);
 				
 				//Vérifier si le critère de terminaison est rencontré
-				if (epsilon * -1 > result - lastResults.getElement(ligne, 0) && result - lastResults.getElement(ligne, 0) > epsilon) {
+				double diff = result - lastResults.getElement(ligne, 0);
+				if (epsilon * -1 > diff || diff > epsilon) {
 					stop = false;
 				}
 			}

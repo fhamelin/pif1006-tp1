@@ -402,15 +402,31 @@ public class test {
 		// --------------------------------------------------------------------
 		double[][] sysA = {{2,1,3},{1,-2,1},{1,1,-2}};
 		double[][] sysB = {{6},{2},{1}};
+		double[][] sysC = {{4,-1,0},{-1,4,-1},{0,-1,4}};
+		double[][] sysD = {{100},{100},{100}};
 		
 		Matrice mat = null;
 		Matrice matA = new Matrice(sysA);
 		Matrice matB = new Matrice(sysB);
+		Matrice matC = new Matrice(sysC);
+		Matrice matD = new Matrice(sysD);
 		
 		Systeme sys = new Systeme(matA, matB);
+		Systeme sys2 = new Systeme(matC, matD);
+		
 		// --------------------------------------------------------------------
 		// Cramer
 		// --------------------------------------------------------------------
+		
+		afficherTitre("Cramer");
+		mat = sys.trouverXParCramer();
+		System.out.println("Syst�me d'�quation sous forme de matrice: \n");
+		matA.afficherMatrice();
+		System.out.println("Matrice d'�galit� : \n");
+		matB.afficherMatrice();
+		System.out.println("R�sultat: \n");
+		mat.afficherMatrice();
+		System.out.println("-----------------------------------------------\n");
 		
 		// --------------------------------------------------------------------
 		// Inversion matricielle
@@ -428,7 +444,24 @@ public class test {
 		// --------------------------------------------------------------------
 		// Jacobi
 		// --------------------------------------------------------------------
+		afficherTitre("Jacobi");
+		System.out.println("Syst�me d'�quation sous forme de matrice: \n");
+		matA.afficherMatrice();
+		System.out.println("Matrice d'�galit� : \n");
+		matB.afficherMatrice();
+		System.out.println("R�sultat: \n");
+		mat = sys2.trouverXParJacobi(0.1);
+		mat.afficherMatrice();
+		System.out.println("-----------------------------------------------\n");
 		
+		mat = sys2.trouverXParJacobi(1);
+		System.out.println("Syst�me d'�quation sous forme de matrice: \n");
+		matC.afficherMatrice();
+		System.out.println("Matrice d'�galit� : \n");
+		matD.afficherMatrice();
+		System.out.println("R�sultat: \n");
+		mat.afficherMatrice();
+		System.out.println("-----------------------------------------------\n");
 	}
 	
 	public static void afficherTitre(String _str) {
