@@ -1,4 +1,4 @@
-import java.io.Console;
+
 
 
 public class test {
@@ -21,15 +21,15 @@ public class test {
 		System.out.println("1ere operation\n");
 		matAdd1.afficherMatrice();
 		matAdd2.afficherMatrice();
-		System.out.println("L'addition de ces deux matrices est ï¿½gal ï¿½: \n");
-		Matrice matAdd4 = matAdd1.additionner(matAdd2); // Err: pas mï¿½me format
+		System.out.println("L'addition de ces deux matrices est égal à: \n");
+		Matrice matAdd4 = matAdd1.additionner(matAdd2); // Err: pas même format
 		afficherEspace();
 		
 		// 2eme operation
 		System.out.println("2ere operation\n");
 		matAdd1.afficherMatrice();
 		matAdd3.afficherMatrice();
-		System.out.println("L'addition de ces deux matrices est ï¿½gal ï¿½: \n");
+		System.out.println("L'addition de ces deux matrices est égal à: \n");
 		Matrice matAdd5 = matAdd1.additionner(matAdd3); // Succï¿½s
 		matAdd5.afficherMatrice(); // Affiche le contenu de la matrice
 		afficherEspace();
@@ -64,7 +64,7 @@ public class test {
 		System.out.println("1ere operation");
 		matProdC.afficherMatrice();
 		matProdD.afficherMatrice();
-		System.out.println("Le produit de ces deux matrices est ï¿½gal ï¿½ :\n");
+		System.out.println("Le produit de ces deux matrices est égal à :\n");
 		Matrice matProdCD = matProdC.faireProduitMatriciel(matProdD);
 		matProdCD.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
@@ -73,7 +73,7 @@ public class test {
 		System.out.println("2eme operation");
 		matProdD.afficherMatrice();
 		matProdE.afficherMatrice();
-		System.out.println("Le produit de ces deux matrices est ï¿½gal ï¿½ :\n");
+		System.out.println("Le produit de ces deux matrices est égal à :\n");
 		Matrice matProdDE = matProdD.faireProduitMatriciel(matProdE);
 		matProdDE.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
@@ -82,7 +82,7 @@ public class test {
 		System.out.println("3eme operation");
 		matProdE.afficherMatrice();
 		matProdD.afficherMatrice();
-		System.out.println("Le produit de ces deux matrices est ï¿½gal ï¿½ :\n");
+		System.out.println("Le produit de ces deux matrices est égal à :\n");
 		Matrice matProdED = matProdE.faireProduitMatriciel(matProdD);
 		System.out.println("-----------------------------------------------\n");
 		
@@ -143,7 +143,7 @@ public class test {
 		// --------------------------------------------------------------------
 		// Faire la transposï¿½e
 		// --------------------------------------------------------------------
-		afficherTitre("Faire la transposï¿½e");
+		afficherTitre("Faire la transposée");
 		double[][] transA = {{1,2,4}, {2,3,2}};
 		double[][] transB = {{2,3,5},{7,8,9},{1,3,5}};
 		double[][] transC = {{24,-11,2},{16,-10,-8},{22,-23,13}};
@@ -155,14 +155,14 @@ public class test {
 		// 1ere operation
 		System.out.println("1ere operation");
 		matTransA.afficherMatrice();
-		System.out.println("Le transposï¿½e de cette matrice est :\n");
+		System.out.println("Le transposée de cette matrice est :\n");
 		matTransA.getTransposee();
 		System.out.println("-----------------------------------------------\n");
 		
 		// 2eme operation
 		System.out.println("2eme operation");
 		matTransB.afficherMatrice();
-		System.out.println("Le transposï¿½e de cette matrice est :\n");
+		System.out.println("Le transposée de cette matrice est :\n");
 		Matrice matTransD = matTransB.getTransposee();
 		matTransD.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
@@ -170,7 +170,7 @@ public class test {
 		// 3eme operation 
 		System.out.println("3eme operation");
 		matTransC.afficherMatrice();
-		System.out.println("Le transposï¿½e de cette matrice est :\n");
+		System.out.println("Le transposée de cette matrice est :\n");
 		Matrice matTransE = matTransC.getTransposee();
 		matTransE.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
@@ -245,7 +245,7 @@ public class test {
 		// --------------------------------------------------------------------
 		// Vï¿½rifier si la matrice carre
 		// --------------------------------------------------------------------
-		afficherTitre("Vï¿½rifier matrice carrï¿½e");
+		afficherTitre("Vï¿½rifier matrice carrée");
 		double[][] carA = {{1,2,3},{4,5,6}};
 		double[][] carB = {{2,3},{4,5}};
 		
@@ -257,24 +257,24 @@ public class test {
 		System.out.println("1ere operation");
 		matCarA.afficherMatrice();
 		estCar = matCarA.estCarre();
-		System.out.println("Cette matrice est carrï¿½e?: " + estCar);
+		System.out.println("Cette matrice est carrée?: " + estCar);
 		System.out.println("-----------------------------------------------\n");
 		
 		// 2ere operation
 		System.out.println("2eme operation");
 		matCarB.afficherMatrice();
 		estCar = matCarB.estCarre();
-		System.out.println("Cette matrice est carrï¿½e?: " + estCar);
+		System.out.println("Cette matrice est carrée?: " + estCar);
 		System.out.println("-----------------------------------------------\n");
 		
 		// --------------------------------------------------------------------
 		// Vï¿½rifier si la matrice est triangulaire
 		// --------------------------------------------------------------------
 		afficherTitre("Matrice triangulaire");
-		double[][] triS = {{3,6,9},{0,5,4},{0,0,1}}; // Triangulaire supï¿½rieur
-		double[][] triI = {{8,0,0},{4,6,0},{1,2,4}}; // Triangulaire infï¿½rieure
-		double[][] triSS = {{0,6,9},{0,0,4},{0,0,0}}; // Triangulaire supï¿½rieur stricte
-		double[][] triIS = {{0,0,0},{4,0,0},{1,2,0}}; // Triangulaire infï¿½rieure stricte
+		double[][] triS = {{3,6,9},{0,5,4},{0,0,1}}; // Triangulaire supérieur
+		double[][] triI = {{8,0,0},{4,6,0},{1,2,4}}; // Triangulaire inférieure
+		double[][] triSS = {{0,6,9},{0,0,4},{0,0,0}}; // Triangulaire supérieur stricte
+		double[][] triIS = {{0,0,0},{4,0,0},{1,2,0}}; // Triangulaire inférieure stricte
 		
 		boolean valeur   = false;
 		Matrice matTriS  = new Matrice(triS);
@@ -289,21 +289,21 @@ public class test {
 		matTriS.afficherMatrice();
 		System.out.println("Cette matrice est: \n");
 		
-		// Triangulaire supï¿½rieur
+		// Triangulaire supérieur
 		valeur = matTriS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, false); 
-		System.out.println("Triangulaire supï¿½rieur? : "+valeur);
+		System.out.println("Triangulaire supérieur? : "+valeur);
 		// ----- I
 		valeur = matTriS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, false); 
-		System.out.println("Triangulaire infï¿½rieur? : " + valeur);
+		System.out.println("Triangulaire inférieur? : " + valeur);
 		// ----- N
 		valeur = matTriS.estTriangulaire(Matrice.TRIANGULAIRE_NIMPORTE, false); 
 		System.out.println("Triangulaire? : " + valeur);
 		// ----- SS
 		valeur = matTriS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, true); 
-		System.out.println("Triangulaire supï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire supérieur stricte? : " + valeur);
 		// ----- IS
 		valeur = matTriS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, true); 
-		System.out.println("Triangulaire infï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire inférieur stricte? : " + valeur);
 		System.out.println("-----------------------------------------------\n");
 		
 		// 2ere operation
@@ -311,21 +311,21 @@ public class test {
 		matTriI.afficherMatrice();
 		System.out.println("Cette matrice est: \n");
 				
-		// Triangulaire infï¿½rieur
+		// Triangulaire inférieur
 		valeur = matTriI.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, false); 
-		System.out.println("Triangulaire supï¿½rieur? : "+valeur);
+		System.out.println("Triangulaire supérieur? : "+valeur);
 		// ----- I
 		valeur = matTriI.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, false); 
-		System.out.println("Triangulaire infï¿½rieur? : " + valeur);
+		System.out.println("Triangulaire inférieur? : " + valeur);
 		// ----- N
 		valeur = matTriI.estTriangulaire(Matrice.TRIANGULAIRE_NIMPORTE, false); 
 		System.out.println("Triangulaire? : " + valeur);
 		// ----- SS
 		valeur = matTriI.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, true); 
-		System.out.println("Triangulaire supï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire supérieur stricte? : " + valeur);
 		// ----- IS
 		valeur = matTriI.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, true); 
-		System.out.println("Triangulaire infï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire inférieur stricte? : " + valeur);
 		System.out.println("-----------------------------------------------\n");
 		
 		// 3ere operation
@@ -333,21 +333,21 @@ public class test {
 		matTriSS.afficherMatrice();
 		System.out.println("Cette matrice est: \n");
 				
-		// Triangulaire supï¿½rieur stricte
+		// Triangulaire supérieur stricte
 		valeur = matTriSS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, false); 
-		System.out.println("Triangulaire supï¿½rieur? : "+valeur);
+		System.out.println("Triangulaire supérieur? : "+valeur);
 		// ----- I
 		valeur = matTriSS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, false); 
-		System.out.println("Triangulaire infï¿½rieur? : " + valeur);
+		System.out.println("Triangulaire inférieur? : " + valeur);
 		// ----- N
 		valeur = matTriSS.estTriangulaire(Matrice.TRIANGULAIRE_NIMPORTE, false); 
 		System.out.println("Triangulaire? : " + valeur);
 		// ----- SS
 		valeur = matTriSS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, true); 
-		System.out.println("Triangulaire supï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire supérieur stricte? : " + valeur);
 		// ----- IS
 		valeur = matTriSS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, true); 
-		System.out.println("Triangulaire infï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire inférieur stricte? : " + valeur);
 		System.out.println("-----------------------------------------------\n");
 		
 		// 4ere operation
@@ -355,21 +355,21 @@ public class test {
 		matTriIS.afficherMatrice();
 		System.out.println("Cette matrice est: \n");
 				
-		// Triangulaire infï¿½rieure stricte
+		// Triangulaire inférieure stricte
 		valeur = matTriIS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, false); 
-		System.out.println("Triangulaire supï¿½rieur? : "+valeur);
+		System.out.println("Triangulaire supérieur? : "+valeur);
 		// ----- I
 		valeur = matTriIS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, false); 
-		System.out.println("Triangulaire infï¿½rieur? : " + valeur);
+		System.out.println("Triangulaire inférieur? : " + valeur);
 		// ----- N
 		valeur = matTriIS.estTriangulaire(Matrice.TRIANGULAIRE_NIMPORTE, false); 
 		System.out.println("Triangulaire? : " + valeur);
 		// ----- SS
 		valeur = matTriIS.estTriangulaire(Matrice.TRIANGULAIRE_SUPERIEUR, true); 
-		System.out.println("Triangulaire supï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire supérieur stricte? : " + valeur);
 		// ----- IS
 		valeur = matTriIS.estTriangulaire(Matrice.TRIANGULAIRE_INFERIEUR, true); 
-		System.out.println("Triangulaire infï¿½rieur stricte? : " + valeur);
+		System.out.println("Triangulaire inférieur stricte? : " + valeur);
 		System.out.println("-----------------------------------------------\n");
 		
 		// --------------------------------------------------------------------
@@ -420,11 +420,11 @@ public class test {
 		
 		afficherTitre("Cramer");
 		mat = sys.trouverXParCramer();
-		System.out.println("Systï¿½me d'ï¿½quation sous forme de matrice: \n");
+		System.out.println("Système d'équation sous forme de matrice: \n");
 		matA.afficherMatrice();
-		System.out.println("Matrice d'ï¿½galitï¿½ : \n");
+		System.out.println("Matrice d'inégalité : \n");
 		matB.afficherMatrice();
-		System.out.println("Rï¿½sultat: \n");
+		System.out.println("Résultat: \n");
 		mat.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
 		
@@ -433,11 +433,11 @@ public class test {
 		// --------------------------------------------------------------------
 		afficherTitre("Inversion matricielle");
 		mat = sys.trouverXParInversionMatricielle();
-		System.out.println("Systï¿½me d'ï¿½quation sous forme de matrice: \n");
+		System.out.println("Système d'équation sous forme de matrice: \n");
 		matA.afficherMatrice();
-		System.out.println("Matrice d'ï¿½galitï¿½ : \n");
+		System.out.println("Matrice d'inégalité : \n");
 		matB.afficherMatrice();
-		System.out.println("Rï¿½sultat: \n");
+		System.out.println("Résultat: \n");
 		mat.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
 		
@@ -445,20 +445,20 @@ public class test {
 		// Jacobi
 		// --------------------------------------------------------------------
 		afficherTitre("Jacobi");
-		System.out.println("Systï¿½me d'ï¿½quation sous forme de matrice: \n");
+		System.out.println("Système d'équation sous forme de matrice: \n");
 		matA.afficherMatrice();
-		System.out.println("Matrice d'ï¿½galitï¿½ : \n");
+		System.out.println("Matrice d'inégalité : \n");
 		matB.afficherMatrice();
-		System.out.println("Rï¿½sultat: \n");
+		System.out.println("Résultat: \n");
 		mat = sys.trouverXParJacobi(0.1);
 		System.out.println("-----------------------------------------------\n");
 		
 		mat = sys2.trouverXParJacobi(1);
-		System.out.println("Systï¿½me d'ï¿½quation sous forme de matrice: \n");
+		System.out.println("Système d'équation sous forme de matrice: \n");
 		matC.afficherMatrice();
-		System.out.println("Matrice d'ï¿½galitï¿½ : \n");
+		System.out.println("Matrice d'inégalité : \n");
 		matD.afficherMatrice();
-		System.out.println("Rï¿½sultat: \n");
+		System.out.println("Résultat: \n");
 		mat.afficherMatrice();
 		System.out.println("-----------------------------------------------\n");
 	}

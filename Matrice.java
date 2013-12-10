@@ -293,7 +293,7 @@ class Matrice {
 	
 	// Fonction qui retourne -1/+1 si impair ou pair de ligne+colonne
 	private int getPosNeg(int _ligne, int _colonne) {
-		return (int)Math.pow((double)-1,(double)(_ligne+_colonne));
+		return (int)Math.pow(-1,_ligne+_colonne);
 	}
 
 	// Triangulaire sup�rieur ou inf�rieur
